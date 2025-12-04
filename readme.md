@@ -9,7 +9,7 @@ Bring the End's mystical energy to life with beautiful purple flames that dance 
 ## ✨ Features
 
 - **Purple flames on endstone**: Place fire on endstone blocks to create stunning purple fire effects
-- **Completely server-side**: Built with Polymer and Filament for seamless multiplayer compatibility
+- **Completely server-side**: Built with Polymer and filament for seamless multiplayer compatibility
 - **No client mods required**: Players see the purple fire without installing anything
 
 ---
@@ -47,7 +47,7 @@ Works anywhere endstone is found:
 
 ## 🔧 Technical Details
 
-This mod uses **Polymer** and **Filament** to modify fire behavior server-side, meaning:
+This mod uses **Polymer** and **filament** to modify fire behavior server-side, meaning:
 - No resource packs needed
 - All players see purple fire automatically
 - Fully compatible with vanilla clients
