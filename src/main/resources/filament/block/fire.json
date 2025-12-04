@@ -1,0 +1,39 @@
+{
+  "id": "endfire:fire",
+  "blockResource": {
+    "models": {
+      "floor0": "endfire:custom/block/fire/end_floor0",
+      "floor1": "endfire:custom/block/fire/end_floor1",
+      "side0": "endfire:custom/block/fire/end_side0",
+      "side1": "endfire:custom/block/fire/end_side1",
+      "side_alt0": "endfire:custom/block/fire/end_side_alt0",
+      "side_alt1": "endfire:custom/block/fire/end_side_alt1",
+      "up0": "endfire:custom/block/fire/end_up0",
+      "up1": "endfire:custom/block/fire/end_up1",
+      "up_alt0": "endfire:custom/block/fire/end_up_alt0",
+      "up_alt1": "endfire:custom/block/fire/end_up_alt1"
+    }
+  },
+  "itemResource": {
+    "models": {
+      "default": "endfire:custom/block/fire/green_floor0"
+    }
+  },
+  "properties": {
+    "blockBase": "minecraft:fire",
+    "lightEmission": 13,
+    "replaceable": true,
+    "transparent": true,
+    "collision": false,
+    "solid": false,
+    "showBreakParticles": false,
+    "pushReaction": "destroy"
+  },
+  "behaviour": {
+    "fire": {
+      "blockTags": [
+        "endfire:endstone"
+      ]
+    }
+  }
+}

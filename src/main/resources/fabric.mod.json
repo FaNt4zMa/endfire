@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "endfire",
+  "version": "${version}",
+  "name": "End Fire",
+  "description": "",
+  "authors": [
+    "tomalbrc",
+    "Fantaz"
+  ],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "endfire.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "de.fantaz.endfire.Endfire"
+    ]
+  },
+  "mixins": [
+    "endfire.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "filament": ">=1.0.2",
+    "minecraft": ">=${minecraft_version}"
+  }
+}
