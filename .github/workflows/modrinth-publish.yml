@@ -28,6 +28,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Get version without v prefix
+        id: version
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          echo "number=${VERSION#v}" >> $GITHUB_OUTPUT
+
       - name: Publish mod to Modrinth
         uses: cloudnode-pro/modrinth-publish@v2
         with:
@@ -35,7 +41,7 @@ jobs:
           project: ${{ env.MODRINTH_ID }}
           name: ${{ github.event.release.name }}
           files: '["${{ steps.download.outputs.filename }}"]'
-          version: ${{ github.event.release.tag_name }}
+          version: ${{ steps.version.outputs.number }}
           changelog: |
             ${{ github.event.release.body }}
             
