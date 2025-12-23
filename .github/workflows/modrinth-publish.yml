@@ -1,0 +1,63 @@
+name: Modrinth Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+env:
+  MODRINTH_SLUG: endfire
+  MODRINTH_ID: pKcvR1NX
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Download release assets
+        id: download
+        run: |
+          gh release download ${{ github.event.release.tag_name }} \
+            --pattern "endfire-*.jar"
+          echo "filename=$(ls endfire-*.jar)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish mod to Modrinth
+        uses: cloudnode-pro/modrinth-publish@v2
+        with:
+          token: ${{ secrets.MODRINTH_TOKEN }}
+          project: ${{ env.MODRINTH_ID }}
+          name: ${{ github.event.release.name }}
+          files: '["${{ steps.download.outputs.filename }}"]'
+          version: ${{ github.event.release.tag_name }}
+          changelog: |
+            ${{ github.event.release.body }}
+            
+            ---
+            *This release was automatically generated via GitHub Actions*
+          loaders: '["fabric"]'
+          game-versions: |-
+            1.21.7
+            1.21.8
+            1.21.9
+            1.21.10
+            1.21.11
+          dependencies: |-
+            [{
+                "project_id": "P7dR8mSH",
+                "dependency_type": "required"
+            },
+            {
+                "project_id": "yANxwqSX",
+                "dependency_type": "required"
+            },
+            {
+                "project_id": "xGdtZczs",
+                "dependency_type": "required"
+            }]
